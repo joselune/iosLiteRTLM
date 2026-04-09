@@ -2,7 +2,7 @@
 
 SwiftUI sample app for running a local LiteRT-LM model on Apple platforms.
 
-This project is the app-side integration for our Apple bridge work. The runtime itself comes from the local [LiteRT-LM](/Users/joseluna/xgeeks/LiteRT-LM) repository, where we package an Apple framework and expose the engine surface needed by the app. This repo focuses on the SwiftUI flow, local model download, and calling the packaged bridge from Swift.
+This project is the app-side integration for our Apple bridge work. The runtime itself comes from the `LiteRT-LM` repository, where we package an Apple framework and expose the engine surface needed by the app. This repo focuses on the SwiftUI flow, local model download, and calling the packaged bridge from Swift.
 
 ## What This App Does
 
@@ -33,7 +33,7 @@ The startup flow is:
 
 ## LiteRT-LM Bridge
 
-The underlying engine is built from the local [LiteRT-LM](/Users/joseluna/xgeeks/LiteRT-LM) workspace.
+The underlying engine is built from the local `LiteRT-LM` workspace.
 
 Relevant context from that repo:
 
@@ -44,7 +44,7 @@ Relevant context from that repo:
   - include the public headers
   - call the LiteRT-LM C API from `c/engine.h`
 
-In this app repo, that engine surface is already wrapped into the checked-in `LiteRTKit.xcframework`, and the Swift app talks to it through [LiteRTInferenceService.swift](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Infrastructure/AI/LiteRTInferenceService.swift).
+In this app repo, that engine surface is already wrapped into the checked-in `LiteRTKit.xcframework`, and the Swift app talks to it through `ailocalagent/Infrastructure/AI/LiteRTInferenceService.swift`.
 
 ## Local Token Setup
 
@@ -53,7 +53,7 @@ The Hugging Face token is intentionally not stored in source control.
 This repo uses an iOS/macOS-friendly local config setup:
 
 1. Create a Hugging Face access token in your Hugging Face account
-2. Copy [Secrets.xcconfig.example](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/Secrets.xcconfig.example) to `ailocalagent/Config/Secrets.xcconfig`
+2. Copy `ailocalagent/Config/Secrets.xcconfig.example` to `ailocalagent/Config/Secrets.xcconfig`
 3. Open `ailocalagent/Config/Secrets.xcconfig`
 4. Set your token on the `HF_TOKEN` line:
 
@@ -75,7 +75,7 @@ cp ailocalagent/Config/Secrets.xcconfig.example ailocalagent/Config/Secrets.xcco
 
 5. Build and run
 
-[BuildSettings.xcconfig](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/BuildSettings.xcconfig) includes the local secrets file when present and injects `HF_TOKEN` into the generated app `Info.plist`.
+`ailocalagent/Config/BuildSettings.xcconfig` includes the local secrets file when present and injects `HF_TOKEN` into the generated app `Info.plist`.
 
 The local secret file is ignored by Git. Only the example file is committed.
 
@@ -86,7 +86,7 @@ The current app is configured to download:
 - model: `gemma-4-E2B-it.litertlm`
 - source: Hugging Face
 
-See [Constants.swift](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Constants/Constants.swift) for the current model name and download URL.
+See `ailocalagent/Constants/Constants.swift` for the current model name and download URL.
 
 ## Frameworks
 
@@ -96,7 +96,7 @@ That framework is the bridge between the Swift app and the LiteRT-LM engine pack
 
 ## Current Integration Surface
 
-The main inference entry point in the app is [LiteRTInferenceService.swift](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Infrastructure/AI/LiteRTInferenceService.swift).
+The main inference entry point in the app is `ailocalagent/Infrastructure/AI/LiteRTInferenceService.swift`.
 
 It currently:
 
