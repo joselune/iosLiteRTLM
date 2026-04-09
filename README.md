@@ -1,102 +1,99 @@
-```txt
-LocalGemmaChat/
-  App/
-    LocalGemmaChatApp.swift
+# iosLiteRTLM
 
-  Features/
-    Chat/
-      ChatView.swift
-      ChatViewModel.swift
-      ChatMessage.swift
-      ComposerView.swift
-      MessageBubbleView.swift
-      ChatScreenState.swift
+SwiftUI sample app for running a local LiteRT-LM model on Apple platforms.
 
-    ModelSetup/
-      ModelSetupView.swift
-      ModelSetupViewModel.swift
-      ModelSetupState.swift
+This project is the app-side integration for our Apple bridge work. The runtime itself comes from the local [LiteRT-LM](/Users/joseluna/xgeeks/LiteRT-LM) repository, where we package an Apple framework and expose the engine surface needed by the app. This repo focuses on the SwiftUI flow, local model download, and calling the packaged bridge from Swift.
 
-  Domain/
-    InferenceEngine.swift
-    ModelRepository.swift
-    DownloadClient.swift
-    ModelInstallState.swift
+## What This App Does
 
-  Infrastructure/
-    AI/
-      LiteRTInferenceService.swift
-      LiteRTBridge.h
-      LiteRTBridge.mm
-      LiteRTRunner.hpp
-      LiteRTRunner.cc
+- Downloads a `.litertlm` model from Hugging Face into `Application Support/Models`
+- Loads that model through `LiteRTKit`
+- Runs local inference from SwiftUI
+- Supports chat, streaming responses, reset, and re-download
+- Targets Apple platforms with the bundled framework checked into `Frameworks/`
 
-    Storage/
-      LocalModelRepository.swift
-      ModelManifest.swift
+## Architecture
 
-    Networking/
-      URLSessionDownloadClient.swift
+The app has a simple split between UI flow and inference integration:
 
-    Config/
-      AppConfig.swift
+- `ailocalagent/App`: top-level app flow and screen switching
+- `ailocalagent/Features/Setup`: model existence checks and download orchestration
+- `ailocalagent/Features/Chat`: chat state and prompt/response flow
+- `ailocalagent/Domain`: abstractions for inference and download behavior
+- `ailocalagent/Infrastructure/AI`: app-side integration with the packaged LiteRT bridge
+- `Frameworks/LiteRTKit.xcframework`: compiled Apple framework used by the app
 
-  Shared/
-    UI/
-      LoadingView.swift
-      ErrorBanner.swift
+The startup flow is:
 
-    Logging/
-      AppLogger.swift
+1. Check whether the model exists locally
+2. If missing, show the download screen
+3. Download the model with a Hugging Face bearer token
+4. Create `LiteRTInferenceService`
+5. Load the model and start local chat inference
+
+## LiteRT-LM Bridge
+
+The underlying engine is built from the local [LiteRT-LM](/Users/joseluna/xgeeks/LiteRT-LM) workspace.
+
+Relevant context from that repo:
+
+- Apple packaging output lives under `LiteRT-LM/out/apple`
+- The generated engine artifact there is `LiteRTLMEngine.xcframework`
+- The suggested app-side integration from that workspace is:
+  - link the xcframework in Xcode
+  - include the public headers
+  - call the LiteRT-LM C API from `c/engine.h`
+
+In this app repo, that engine surface is already wrapped into the checked-in `LiteRTKit.xcframework`, and the Swift app talks to it through [LiteRTInferenceService.swift](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Infrastructure/AI/LiteRTInferenceService.swift).
+
+## Local Token Setup
+
+The Hugging Face token is intentionally not stored in source control.
+
+This repo uses an iOS/macOS-friendly local config setup:
+
+1. Copy [Secrets.xcconfig.example](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/Secrets.xcconfig.example) to `ailocalagent/Config/Secrets.xcconfig`
+2. Set your token:
+
+```xcconfig
+HF_TOKEN = your_hugging_face_token_here
 ```
 
-## Local setup
+3. Build and run
 
-The app expects a local Hugging Face token through an ignored Xcode config file and does not store that token in source control.
+[BuildSettings.xcconfig](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/BuildSettings.xcconfig) includes the local secrets file when present and injects `HF_TOKEN` into the generated app `Info.plist`.
 
-1. Copy `ailocalagent/Config/Secrets.xcconfig.example` to `ailocalagent/Config/Secrets.xcconfig`
-2. Replace the placeholder value with your local Hugging Face token
-3. Build and run normally
+The local secret file is ignored by Git. Only the example file is committed.
 
-`BuildSettings.xcconfig` includes `Secrets.xcconfig` when present and injects `HF_TOKEN` into the app's generated `Info.plist`.
+## Model Setup
 
-`Frameworks/LiteRTKit.xcframework` is intended to stay in the project and can be committed.
+The current app is configured to download:
 
-### Stage 1 — Project scaffold and architecture foundation
-Goal
+- model: `gemma-4-E2B-it.litertlm`
+- source: Hugging Face
 
-Set up the app structure, dependency boundaries, and a fake vertical slice before touching model download or native inference.
+See [Constants.swift](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Constants/Constants.swift) for the current model name and download URL.
 
-Tasks
-Create the Xcode SwiftUI project
-Create the folder structure
-Define core domain protocols:
-InferenceEngine
-ModelRepository
-DownloadClient
-Create initial models:
-ChatMessage
-ModelInstallState
-ChatScreenState
-Create mock implementations for:
-fake inference
-fake model repository
-fake downloader
-Build a minimal navigation flow:
-if model not ready → show setup screen
-if model ready → show chat screen
-Add AppConfig for constants and model metadata placeholders
+## Frameworks
 
-### Deliverables
-App compiles and runs
-Clean folder structure in place
-Domain interfaces defined
-Chat screen and setup screen both exist
-App works end-to-end using mocks only
-No native bridge yet
+`Frameworks/LiteRTKit.xcframework` is part of the project on purpose and is expected to be committed.
 
-### Definition of done
-You can launch the app and navigate through the intended flow
-The UI does not depend on concrete infra classes directly
-Mock inference can return a fake response
-___
+That framework is the bridge between the Swift app and the LiteRT-LM engine packaging work. This repo does not rebuild the native engine during normal app development.
+
+## Current Integration Surface
+
+The main inference entry point in the app is [LiteRTInferenceService.swift](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Infrastructure/AI/LiteRTInferenceService.swift).
+
+It currently:
+
+- creates a `GemmaLocalEngine`
+- loads the selected model path
+- supports CPU/backend selection
+- exposes full-response generation
+- exposes streaming token generation
+- supports cancellation and reset
+
+## Notes
+
+- The previous README content described an early scaffold plan and no longer matched the real project state.
+- This repo now represents a working Apple app integration around a compiled LiteRT bridge and local model download flow.
