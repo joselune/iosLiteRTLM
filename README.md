@@ -52,14 +52,28 @@ The Hugging Face token is intentionally not stored in source control.
 
 This repo uses an iOS/macOS-friendly local config setup:
 
-1. Copy [Secrets.xcconfig.example](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/Secrets.xcconfig.example) to `ailocalagent/Config/Secrets.xcconfig`
-2. Set your token:
+1. Create a Hugging Face access token in your Hugging Face account
+2. Copy [Secrets.xcconfig.example](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/Secrets.xcconfig.example) to `ailocalagent/Config/Secrets.xcconfig`
+3. Open `ailocalagent/Config/Secrets.xcconfig`
+4. Set your token on the `HF_TOKEN` line:
 
 ```xcconfig
 HF_TOKEN = your_hugging_face_token_here
 ```
 
-3. Build and run
+Example:
+
+```xcconfig
+HF_TOKEN = hf_your_real_token_here
+```
+
+You can also create the file from Terminal:
+
+```bash
+cp ailocalagent/Config/Secrets.xcconfig.example ailocalagent/Config/Secrets.xcconfig
+```
+
+5. Build and run
 
 [BuildSettings.xcconfig](/Users/joseluna/xgeeks/MobileExp/ailocalagent/ailocalagent/Config/BuildSettings.xcconfig) includes the local secrets file when present and injects `HF_TOKEN` into the generated app `Info.plist`.
 
