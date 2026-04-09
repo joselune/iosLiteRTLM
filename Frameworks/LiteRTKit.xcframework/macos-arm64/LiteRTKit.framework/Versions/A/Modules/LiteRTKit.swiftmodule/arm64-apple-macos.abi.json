@@ -1,0 +1,1317 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "LiteRTKit",
+    "printedName": "LiteRTKit",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LiteRTKit"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "GemmaLocalEngine",
+        "printedName": "GemmaLocalEngine",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "GemmaLocalEngine",
+                "printedName": "LiteRTKit.GemmaLocalEngine",
+                "usr": "s:9LiteRTKit16GemmaLocalEngineC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineCACycfc",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineCACycfc",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "loadModel",
+            "printedName": "loadModel(at:backend:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceBackend",
+                "printedName": "LiteRTKit.InferenceBackend",
+                "hasDefaultArg": true,
+                "usr": "s:9LiteRTKit16InferenceBackendO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineC9loadModel2at7backendySS_AA16InferenceBackendOtYaKF",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC9loadModel2at7backendySS_AA16InferenceBackendOtYaKF",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "Final",
+              "Nonisolated",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "generate",
+            "printedName": "generate(prompt:config:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceResponse",
+                "printedName": "LiteRTKit.InferenceResponse",
+                "usr": "s:9LiteRTKit17InferenceResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceConfig",
+                "printedName": "LiteRTKit.InferenceConfig",
+                "usr": "s:9LiteRTKit15InferenceConfigV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineC8generate6prompt6configAA17InferenceResponseVSS_AA0I6ConfigVtYaKF",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC8generate6prompt6configAA17InferenceResponseVSS_AA0I6ConfigVtYaKF",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "Nonisolated",
+              "Final",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "generateStream",
+            "printedName": "generateStream(prompt:config:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AsyncThrowingStream",
+                "printedName": "_Concurrency.AsyncThrowingStream<Swift.String, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Scs"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceConfig",
+                "printedName": "LiteRTKit.InferenceConfig",
+                "usr": "s:9LiteRTKit15InferenceConfigV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineC14generateStream6prompt6configScsySSs5Error_pGSS_AA15InferenceConfigVtF",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC14generateStream6prompt6configScsySSs5Error_pGSS_AA15InferenceConfigVtF",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cancelGeneration",
+            "printedName": "cancelGeneration()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineC16cancelGenerationyyF",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC16cancelGenerationyyF",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reset",
+            "printedName": "reset()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineC5resetyyYaF",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC5resetyyYaF",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "Nonisolated",
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:9LiteRTKit16GemmaLocalEngineC",
+        "mangledName": "$s9LiteRTKit16GemmaLocalEngineC",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "Final",
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "LocalInferenceEngine",
+            "printedName": "LocalInferenceEngine",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InferenceBackend",
+        "printedName": "InferenceBackend",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "cpu",
+            "printedName": "cpu",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LiteRTKit.InferenceBackend.Type) -> LiteRTKit.InferenceBackend",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InferenceBackend",
+                    "printedName": "LiteRTKit.InferenceBackend",
+                    "usr": "s:9LiteRTKit16InferenceBackendO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LiteRTKit.InferenceBackend.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InferenceBackend",
+                        "printedName": "LiteRTKit.InferenceBackend",
+                        "usr": "s:9LiteRTKit16InferenceBackendO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:9LiteRTKit16InferenceBackendO3cpuyA2CmF",
+            "mangledName": "$s9LiteRTKit16InferenceBackendO3cpuyA2CmF",
+            "moduleName": "LiteRTKit"
+          },
+          {
+            "kind": "Var",
+            "name": "gpu",
+            "printedName": "gpu",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LiteRTKit.InferenceBackend.Type) -> LiteRTKit.InferenceBackend",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InferenceBackend",
+                    "printedName": "LiteRTKit.InferenceBackend",
+                    "usr": "s:9LiteRTKit16InferenceBackendO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LiteRTKit.InferenceBackend.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InferenceBackend",
+                        "printedName": "LiteRTKit.InferenceBackend",
+                        "usr": "s:9LiteRTKit16InferenceBackendO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:9LiteRTKit16InferenceBackendO3gpuyA2CmF",
+            "mangledName": "$s9LiteRTKit16InferenceBackendO3gpuyA2CmF",
+            "moduleName": "LiteRTKit"
+          },
+          {
+            "kind": "Var",
+            "name": "npu",
+            "printedName": "npu",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(LiteRTKit.InferenceBackend.Type) -> LiteRTKit.InferenceBackend",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InferenceBackend",
+                    "printedName": "LiteRTKit.InferenceBackend",
+                    "usr": "s:9LiteRTKit16InferenceBackendO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "LiteRTKit.InferenceBackend.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InferenceBackend",
+                        "printedName": "LiteRTKit.InferenceBackend",
+                        "usr": "s:9LiteRTKit16InferenceBackendO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:9LiteRTKit16InferenceBackendO3npuyA2CmF",
+            "mangledName": "$s9LiteRTKit16InferenceBackendO3npuyA2CmF",
+            "moduleName": "LiteRTKit"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "LiteRTKit.InferenceBackend?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InferenceBackend",
+                    "printedName": "LiteRTKit.InferenceBackend",
+                    "usr": "s:9LiteRTKit16InferenceBackendO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9LiteRTKit16InferenceBackendO8rawValueACSgSS_tcfc",
+            "mangledName": "$s9LiteRTKit16InferenceBackendO8rawValueACSgSS_tcfc",
+            "moduleName": "LiteRTKit",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit16InferenceBackendO8rawValueSSvp",
+            "mangledName": "$s9LiteRTKit16InferenceBackendO8rawValueSSvp",
+            "moduleName": "LiteRTKit",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit16InferenceBackendO8rawValueSSvg",
+                "mangledName": "$s9LiteRTKit16InferenceBackendO8rawValueSSvg",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "allCases",
+            "printedName": "allCases",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[LiteRTKit.InferenceBackend]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "InferenceBackend",
+                    "printedName": "LiteRTKit.InferenceBackend",
+                    "usr": "s:9LiteRTKit16InferenceBackendO"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit16InferenceBackendO8allCasesSayACGvpZ",
+            "mangledName": "$s9LiteRTKit16InferenceBackendO8allCasesSayACGvpZ",
+            "moduleName": "LiteRTKit",
+            "static": true,
+            "implicit": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[LiteRTKit.InferenceBackend]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InferenceBackend",
+                        "printedName": "LiteRTKit.InferenceBackend",
+                        "usr": "s:9LiteRTKit16InferenceBackendO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit16InferenceBackendO8allCasesSayACGvgZ",
+                "mangledName": "$s9LiteRTKit16InferenceBackendO8allCasesSayACGvgZ",
+                "moduleName": "LiteRTKit",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:9LiteRTKit16InferenceBackendO",
+        "mangledName": "$s9LiteRTKit16InferenceBackendO",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CaseIterable",
+            "printedName": "CaseIterable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "AllCases",
+                "printedName": "AllCases",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[LiteRTKit.InferenceBackend]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "InferenceBackend",
+                        "printedName": "LiteRTKit.InferenceBackend",
+                        "usr": "s:9LiteRTKit16InferenceBackendO"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s12CaseIterableP",
+            "mangledName": "$ss12CaseIterableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InferenceConfig",
+        "printedName": "InferenceConfig",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "maxTokens",
+            "printedName": "maxTokens",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit15InferenceConfigV9maxTokensSivp",
+            "mangledName": "$s9LiteRTKit15InferenceConfigV9maxTokensSivp",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit15InferenceConfigV9maxTokensSivg",
+                "mangledName": "$s9LiteRTKit15InferenceConfigV9maxTokensSivg",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit15InferenceConfigV9maxTokensSivs",
+                "mangledName": "$s9LiteRTKit15InferenceConfigV9maxTokensSivs",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit15InferenceConfigV9maxTokensSivM",
+                "mangledName": "$s9LiteRTKit15InferenceConfigV9maxTokensSivM",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "temperature",
+            "printedName": "temperature",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit15InferenceConfigV11temperatureSfvp",
+            "mangledName": "$s9LiteRTKit15InferenceConfigV11temperatureSfvp",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit15InferenceConfigV11temperatureSfvg",
+                "mangledName": "$s9LiteRTKit15InferenceConfigV11temperatureSfvg",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Float",
+                    "printedName": "Swift.Float",
+                    "usr": "s:Sf"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit15InferenceConfigV11temperatureSfvs",
+                "mangledName": "$s9LiteRTKit15InferenceConfigV11temperatureSfvs",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit15InferenceConfigV11temperatureSfvM",
+                "mangledName": "$s9LiteRTKit15InferenceConfigV11temperatureSfvM",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(maxTokens:temperature:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceConfig",
+                "printedName": "LiteRTKit.InferenceConfig",
+                "usr": "s:9LiteRTKit15InferenceConfigV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "hasDefaultArg": true,
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Float",
+                "printedName": "Swift.Float",
+                "hasDefaultArg": true,
+                "usr": "s:Sf"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:9LiteRTKit15InferenceConfigV9maxTokens11temperatureACSi_Sftcfc",
+            "mangledName": "$s9LiteRTKit15InferenceConfigV9maxTokens11temperatureACSi_Sftcfc",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:9LiteRTKit15InferenceConfigV",
+        "mangledName": "$s9LiteRTKit15InferenceConfigV",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LiteRTKit"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "InferenceResponse",
+        "printedName": "InferenceResponse",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "text",
+            "printedName": "text",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit17InferenceResponseV4textSSvp",
+            "mangledName": "$s9LiteRTKit17InferenceResponseV4textSSvp",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit17InferenceResponseV4textSSvg",
+                "mangledName": "$s9LiteRTKit17InferenceResponseV4textSSvg",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "thinking",
+            "printedName": "thinking",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit17InferenceResponseV8thinkingSSSgvp",
+            "mangledName": "$s9LiteRTKit17InferenceResponseV8thinkingSSSgvp",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit17InferenceResponseV8thinkingSSSgvg",
+                "mangledName": "$s9LiteRTKit17InferenceResponseV8thinkingSSSgvg",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawJSON",
+            "printedName": "rawJSON",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:9LiteRTKit17InferenceResponseV7rawJSONSSvp",
+            "mangledName": "$s9LiteRTKit17InferenceResponseV7rawJSONSSvp",
+            "moduleName": "LiteRTKit",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:9LiteRTKit17InferenceResponseV7rawJSONSSvg",
+                "mangledName": "$s9LiteRTKit17InferenceResponseV7rawJSONSSvg",
+                "moduleName": "LiteRTKit",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:9LiteRTKit17InferenceResponseV",
+        "mangledName": "$s9LiteRTKit17InferenceResponseV",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LiteRTKit"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LocalInferenceEngine",
+        "printedName": "LocalInferenceEngine",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "loadModel",
+            "printedName": "loadModel(at:backend:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceBackend",
+                "printedName": "LiteRTKit.InferenceBackend",
+                "usr": "s:9LiteRTKit16InferenceBackendO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP9loadModel2at7backendySS_AA0D7BackendOtYaKF",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP9loadModel2at7backendySS_AA0D7BackendOtYaKF",
+            "moduleName": "LiteRTKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : LiteRTKit.LocalInferenceEngine>",
+            "sugared_genericSig": "<Self where Self : LiteRTKit.LocalInferenceEngine>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "generate",
+            "printedName": "generate(prompt:config:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceResponse",
+                "printedName": "LiteRTKit.InferenceResponse",
+                "usr": "s:9LiteRTKit17InferenceResponseV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceConfig",
+                "printedName": "LiteRTKit.InferenceConfig",
+                "usr": "s:9LiteRTKit15InferenceConfigV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP8generate6prompt6configAA0D8ResponseVSS_AA0D6ConfigVtYaKF",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP8generate6prompt6configAA0D8ResponseVSS_AA0D6ConfigVtYaKF",
+            "moduleName": "LiteRTKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : LiteRTKit.LocalInferenceEngine>",
+            "sugared_genericSig": "<Self where Self : LiteRTKit.LocalInferenceEngine>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "throwing": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "generateStream",
+            "printedName": "generateStream(prompt:config:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AsyncThrowingStream",
+                "printedName": "_Concurrency.AsyncThrowingStream<Swift.String, any Swift.Error>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Scs"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InferenceConfig",
+                "printedName": "LiteRTKit.InferenceConfig",
+                "usr": "s:9LiteRTKit15InferenceConfigV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP14generateStream6prompt6configScsySSs5Error_pGSS_AA0D6ConfigVtF",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP14generateStream6prompt6configScsySSs5Error_pGSS_AA0D6ConfigVtF",
+            "moduleName": "LiteRTKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : LiteRTKit.LocalInferenceEngine>",
+            "sugared_genericSig": "<Self where Self : LiteRTKit.LocalInferenceEngine>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "cancelGeneration",
+            "printedName": "cancelGeneration()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP16cancelGenerationyyF",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP16cancelGenerationyyF",
+            "moduleName": "LiteRTKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : LiteRTKit.LocalInferenceEngine>",
+            "sugared_genericSig": "<Self where Self : LiteRTKit.LocalInferenceEngine>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "reset",
+            "printedName": "reset()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP5resetyyYaF",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP5resetyyYaF",
+            "moduleName": "LiteRTKit",
+            "genericSig": "<τ_0_0 where τ_0_0 : LiteRTKit.LocalInferenceEngine>",
+            "sugared_genericSig": "<Self where Self : LiteRTKit.LocalInferenceEngine>",
+            "protocolReq": true,
+            "declAttributes": [
+              "Nonisolated"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:9LiteRTKit20LocalInferenceEngineP",
+        "mangledName": "$s9LiteRTKit20LocalInferenceEngineP",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "LiteRTKit",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 188,
+      "length": 5,
+      "value": "\"cpu\""
+    },
+    {
+      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 209,
+      "length": 5,
+      "value": "\"gpu\""
+    },
+    {
+      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "kind": "StringLiteral",
+      "offset": 230,
+      "length": 5,
+      "value": "\"npu\""
+    },
+    {
+      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "kind": "IntegerLiteral",
+      "offset": 388,
+      "length": 3,
+      "value": "512"
+    },
+    {
+      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "kind": "FloatLiteral",
+      "offset": 422,
+      "length": 3,
+      "value": "0.7"
+    }
+  ]
+}

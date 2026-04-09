@@ -1,0 +1,23 @@
+.DS_Store
+
+# Xcode user-specific data
+xcuserdata/
+*.xcuserstate
+*.xcbkptlist
+
+# Xcode build outputs
+DerivedData/
+build/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Packages/
+
+# Local secrets
+.env
+.env.*
+Local.xcconfig
+Secrets.xcconfig
+Secrets.plist
+LocalSecrets.plist

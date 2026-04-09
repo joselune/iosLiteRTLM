@@ -1,0 +1,6 @@
+framework module LiteRTKit {
+  umbrella header "LiteRTKit.h"
+  export *
+
+  module * { export * }
+}

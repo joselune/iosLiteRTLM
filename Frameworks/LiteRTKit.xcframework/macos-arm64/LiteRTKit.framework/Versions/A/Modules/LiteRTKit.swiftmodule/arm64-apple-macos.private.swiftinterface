@@ -1,0 +1,67 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-module-flags: -target arm64-apple-macos14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name LiteRTKit
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+import Foundation
+@_exported import LiteRTKit
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+final public class GemmaLocalEngine : LiteRTKit.LocalInferenceEngine {
+  public init()
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) final public func loadModel(at path: Swift.String, backend: LiteRTKit.InferenceBackend = .cpu) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func generate(prompt: Swift.String, config: LiteRTKit.InferenceConfig) async throws -> LiteRTKit.InferenceResponse
+  #endif
+  final public func generateStream(prompt: Swift.String, config: LiteRTKit.InferenceConfig) -> _Concurrency.AsyncThrowingStream<Swift.String, any Swift.Error>
+  final public func cancelGeneration()
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  final nonisolated(nonsending) public func reset() async
+  #endif
+  @objc deinit
+}
+public enum InferenceBackend : Swift.String, Swift.CaseIterable, Swift.Sendable {
+  case cpu
+  case gpu
+  case npu
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [LiteRTKit.InferenceBackend]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [LiteRTKit.InferenceBackend] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct InferenceConfig : Swift.Sendable {
+  public var maxTokens: Swift.Int
+  public var temperature: Swift.Float
+  public init(maxTokens: Swift.Int = 512, temperature: Swift.Float = 0.7)
+}
+public struct InferenceResponse : Swift.Sendable {
+  public let text: Swift.String
+  public let thinking: Swift.String?
+  public let rawJSON: Swift.String
+}
+public protocol LocalInferenceEngine {
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func loadModel(at path: Swift.String, backend: LiteRTKit.InferenceBackend) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func generate(prompt: Swift.String, config: LiteRTKit.InferenceConfig) async throws -> LiteRTKit.InferenceResponse
+  #endif
+  func generateStream(prompt: Swift.String, config: LiteRTKit.InferenceConfig) -> _Concurrency.AsyncThrowingStream<Swift.String, any Swift.Error>
+  func cancelGeneration()
+  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func reset() async
+  #endif
+}
+extension LiteRTKit.InferenceBackend : Swift.Equatable {}
+extension LiteRTKit.InferenceBackend : Swift.Hashable {}
+extension LiteRTKit.InferenceBackend : Swift.RawRepresentable {}
