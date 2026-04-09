@@ -62,8 +62,12 @@ final class URLSessionDownloadClient: NSObject, DownloadClient, URLSessionDelega
         ) -> AsyncThrowingStream<DownloadEvent, Error> {
             AsyncThrowingStream { continuation in
                 do {
-                    guard let token = Bundle.main.object(forInfoDictionaryKey: Constants.HF_TOKEN_INFO_KEY) as? String,
-                          token.isEmpty == false else {
+                    guard let rawToken = Bundle.main.object(forInfoDictionaryKey: Constants.HF_TOKEN_INFO_KEY) as? String else {
+                        throw DownloadClientError.missingHuggingFaceToken
+                    }
+
+                    let token = rawToken.trimmingCharacters(in: .whitespacesAndNewlines)
+                    guard token.isEmpty == false else {
                         throw DownloadClientError.missingHuggingFaceToken
                     }
 
