@@ -42,26 +42,32 @@ struct ChatApp: View {
                 }
             }
             .onChange(of: viewModel.selectedBackend) {
+                guard !viewModel.suppressBackendChange else { return }
                 Task { await viewModel.loadModel() }
             }
         }
         .overlay(alignment: .top) { toastOverlay }
         .overlay { modelLoadingOverlay }
-        .alert("Failed to load model", isPresented: $viewModel.showErrorAlert) {
-            if viewModel.selectedBackend != .cpu {
-                Button("Fallback to CPU") {
-                    Task { await viewModel.fallbackToCPU() }
+        .alert(viewModel.screenState.isError ? "Failed to load model" : "Backend Notice",
+               isPresented: $viewModel.showErrorAlert) {
+            if viewModel.screenState.isError {
+                if viewModel.selectedBackend != .cpu {
+                    Button("Fallback to CPU") {
+                        Task { await viewModel.fallbackToCPU() }
+                    }
                 }
+                Button("Retry") {
+                    Task { await viewModel.loadModel() }
+                }
+                Button("Delete & Re-download", role: .destructive) {
+                    viewModel.deleteModelFile()
+                }
+                Button("Dismiss", role: .cancel) { }
+            } else {
+                Button("OK", role: .cancel) { }
             }
-            Button("Retry") {
-                Task { await viewModel.loadModel() }
-            }
-            Button("Delete & Re-download", role: .destructive) {
-                viewModel.deleteModelFile()
-            }
-            Button("Dismiss", role: .cancel) { }
         } message: {
-            if viewModel.isRunningOnSimulator {
+            if viewModel.isRunningOnSimulator && viewModel.screenState.isError {
                 Text("\(viewModel.errorMessage)\n\nThe AI engine may not work on the iOS Simulator. Try a real device or macOS.")
             } else {
                 Text(viewModel.errorMessage)

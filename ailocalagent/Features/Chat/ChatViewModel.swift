@@ -11,6 +11,7 @@ final class ChatViewModel {
     var selectedBackend: AppBackend = .cpu
     var showErrorAlert = false
     var errorMessage = ""
+    var suppressBackendChange = false
 
     let modelURL: URL
     private let inference: InferenceEngine
@@ -30,20 +31,51 @@ final class ChatViewModel {
     }
 
     func loadModel() async {
+        stop()
+        await generationTask?.value
+        generationTask = nil
+
         screenState = .loadingModel
         do {
             try await inference.loadModel(at: modelURL.path, backend: selectedBackend)
             screenState = .idle
             showModelLoadedToast = true
         } catch {
+            if selectedBackend != .cpu {
+                let failedBackend = selectedBackend.rawValue.uppercased()
+                selectedBackendSilently(.cpu)
+                do {
+                    try await inference.loadModel(at: modelURL.path, backend: .cpu)
+                    screenState = .idle
+                    errorMessage = "\(failedBackend) is not available for this model. Running on CPU."
+                    showErrorAlert = true
+                    return
+                } catch {
+                    errorMessage = error.localizedDescription
+                    screenState = .error(message: errorMessage)
+                    showErrorAlert = true
+                    return
+                }
+            }
             errorMessage = error.localizedDescription
             screenState = .error(message: errorMessage)
             showErrorAlert = true
         }
     }
 
+    private func selectedBackendSilently(_ backend: AppBackend) {
+        suppressBackendChange = true
+        selectedBackend = backend
+        suppressBackendChange = false
+    }
+
+    private func stop() {
+        inference.cancelGeneration()
+        generationTask?.cancel()
+    }
+
     func fallbackToCPU() async {
-        selectedBackend = .cpu
+        selectedBackendSilently(.cpu)
         await loadModel()
     }
 
@@ -53,8 +85,7 @@ final class ChatViewModel {
     }
 
     func newChat() async {
-        inference.cancelGeneration()
-        generationTask?.cancel()
+        stop()
         await generationTask?.value
         generationTask = nil
         screenState = .idle
@@ -63,8 +94,8 @@ final class ChatViewModel {
     }
 
     func stopGenerating() {
-        inference.cancelGeneration()
-        generationTask?.cancel()
+        stop()
+        screenState = .idle
     }
 
     func sendMessage() {
@@ -90,19 +121,22 @@ final class ChatViewModel {
                     }
                 }
             } catch {
-                guard !Task.isCancelled else { return }
-                if let idx = assistantIndex, !messages[idx].text.isEmpty {
-                    messages.append(ChatMessage(role: .system, text: "Generation stopped."))
-                } else {
-                    if let idx = assistantIndex {
+                if Task.isCancelled {
+                    if let idx = assistantIndex, messages[idx].text.isEmpty {
                         messages.remove(at: idx)
                     }
-                    messages.append(ChatMessage(role: .system, text: "Failed to generate response. Please try again."))
+                } else {
+                    if let idx = assistantIndex, !messages[idx].text.isEmpty {
+                        messages.append(ChatMessage(role: .system, text: "Generation stopped."))
+                    } else {
+                        if let idx = assistantIndex {
+                            messages.remove(at: idx)
+                        }
+                        messages.append(ChatMessage(role: .system, text: "Failed to generate response. Please try again."))
+                    }
                 }
             }
-            if !Task.isCancelled {
-                screenState = .idle
-            }
+            screenState = .idle
         }
     }
 }
