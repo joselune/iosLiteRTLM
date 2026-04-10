@@ -8,6 +8,10 @@
 		<data>
 		xRdcEaQmxdngJtH3EBnPVH+3YCc=
 		</data>
+		<key>Resources/README.md</key>
+		<data>
+		QhPNlf9is4zPqYeQPbOSA9Z5G+c=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -15,7 +19,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			czjtH3lqYkPS7wiNQTetthJbUk1H+CU06gQ7iHmyNPA=
+			yuwgWkJS2iFyDTI6d1htWm6hguOSeEvuEhCO+oqbC1w=
 			</data>
 		</dict>
 		<key>Headers/LiteRTKit.h</key>
@@ -29,14 +33,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x7SAhFfvVKC9mXgtYLArUamxLeOCkqG/4R1VRFOktoY=
+			SJuSceXRvG7j35CvNPBztFUfarmOJccs0ubyGuEkQB8=
 			</data>
 		</dict>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-macos.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZmphxseRgDRJ35B3hF6050q+FJ4TEO8ELOvOaM6aVdA=
+			x8dDVwRBNVKSkqD91W80kT4FAXr4+cY99zJ/e/blAic=
 			</data>
 		</dict>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-macos.swiftdoc</key>
@@ -50,14 +54,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZmphxseRgDRJ35B3hF6050q+FJ4TEO8ELOvOaM6aVdA=
+			x8dDVwRBNVKSkqD91W80kT4FAXr4+cY99zJ/e/blAic=
 			</data>
 		</dict>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-macos.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EEeCG9D6bfR0wAm5MFBhuMy2SljxdId+w6kOwVWLtEM=
+			MfE5BGXA/6gPLrOZGPEIGLMncSAn9HSDpDJNbLTQKbk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -72,6 +76,13 @@
 			<key>hash2</key>
 			<data>
 			TW0+SoA9MwH89JFEELgLCEU5Q94CyvvX1JtNCPWALTw=
+			</data>
+		</dict>
+		<key>Resources/README.md</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			emfqwsHwQvM+JAbDUjZkYVHkPl+jY3M6MWJXV95qMyg=
 			</data>
 		</dict>
 	</dict>

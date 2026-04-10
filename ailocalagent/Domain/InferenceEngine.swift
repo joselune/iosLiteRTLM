@@ -5,7 +5,7 @@ enum AppBackend: String, CaseIterable {
 }
 
 protocol InferenceEngine {
-    func loadModel(at path: String, backend: AppBackend) async throws
+    func loadModel(at path: String, backend: AppBackend, gpuLibDir: String?) async throws
     func generate(prompt: String) async throws -> String
     func generateStream(prompt: String) -> AsyncThrowingStream<String, Error>
     func cancelGeneration()

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/LiteRTBridge.h</key>
 		<data>
-		8/AyQYPO5SK4NUd6qXbSOcnM5ZQ=
+		xyONHXD7dmaXNlvBzNjf/FcAHuI=
 		</data>
 		<key>Headers/LiteRTKit.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		qrXumSJErBTygiFl+ABu1J7+ezs=
+		6LSMIZH2ldcpNQFSxR6vumZq0bs=
 		</data>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		8pF+/TwHq1eaA2v7Gc/wgA4O68Q=
+		aQZsWbhihVCpnf1j2C0dWeWFmH4=
 		</data>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -30,15 +30,19 @@
 		</data>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		8pF+/TwHq1eaA2v7Gc/wgA4O68Q=
+		aQZsWbhihVCpnf1j2C0dWeWFmH4=
 		</data>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		W9LwDLTpcMWoyasn8uR1C5IOhuk=
+		rjNhlLWTRNw/eq2wHtQBuDubV6M=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		wSofB+mSgcup+CDDfusV7PeTnJY=
+		</data>
+		<key>README.md</key>
+		<data>
+		QhPNlf9is4zPqYeQPbOSA9Z5G+c=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -47,7 +51,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			czjtH3lqYkPS7wiNQTetthJbUk1H+CU06gQ7iHmyNPA=
+			yuwgWkJS2iFyDTI6d1htWm6hguOSeEvuEhCO+oqbC1w=
 			</data>
 		</dict>
 		<key>Headers/LiteRTKit.h</key>
@@ -61,14 +65,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			x7SAhFfvVKC9mXgtYLArUamxLeOCkqG/4R1VRFOktoY=
+			SJuSceXRvG7j35CvNPBztFUfarmOJccs0ubyGuEkQB8=
 			</data>
 		</dict>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			EotatAyG80RulKySjuIQQOCDobbeRGLf032427GU8lI=
+			SOPz2rZgsy3Trwo07hTGXjvs5CwLkWY+qPCoCNrepFE=
 			</data>
 		</dict>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -82,14 +86,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EotatAyG80RulKySjuIQQOCDobbeRGLf032427GU8lI=
+			SOPz2rZgsy3Trwo07hTGXjvs5CwLkWY+qPCoCNrepFE=
 			</data>
 		</dict>
 		<key>Modules/LiteRTKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			h9IjXPzPrpMScMZ+hVfUE2QIPyIgpLuge5DSQB6rq1w=
+			ck+TjaCLI77dR92E8Dj96qO1wbEFZs++dNkfVvkFnHU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -97,6 +101,13 @@
 			<key>hash2</key>
 			<data>
 			fPnPI/MD1Qevl+tOJWCvQwYqtf5qgGDqtGKbkW9/rvY=
+			</data>
+		</dict>
+		<key>README.md</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			emfqwsHwQvM+JAbDUjZkYVHkPl+jY3M6MWJXV95qMyg=
 			</data>
 		</dict>
 	</dict>

@@ -12,7 +12,6 @@ final class ChatViewModel {
     var showErrorAlert = false
     var errorMessage = ""
     var suppressBackendChange = false
-
     let modelURL: URL
     private let inference: InferenceEngine
     private var generationTask: Task<Void, Never>?
@@ -30,6 +29,14 @@ final class ChatViewModel {
         self.modelURL = modelURL
     }
 
+    private var gpuLibDir: String? {
+        #if os(macOS)
+        return Bundle.main.privateFrameworksURL?.path
+        #else
+        return nil
+        #endif
+    }
+
     func loadModel() async {
         stop()
         await generationTask?.value
@@ -37,7 +44,7 @@ final class ChatViewModel {
 
         screenState = .loadingModel
         do {
-            try await inference.loadModel(at: modelURL.path, backend: selectedBackend)
+            try await inference.loadModel(at: modelURL.path, backend: selectedBackend, gpuLibDir: gpuLibDir)
             screenState = .idle
             showModelLoadedToast = true
         } catch {
@@ -45,7 +52,7 @@ final class ChatViewModel {
                 let failedBackend = selectedBackend.rawValue.uppercased()
                 selectedBackendSilently(.cpu)
                 do {
-                    try await inference.loadModel(at: modelURL.path, backend: .cpu)
+                    try await inference.loadModel(at: modelURL.path, backend: .cpu, gpuLibDir: gpuLibDir)
                     screenState = .idle
                     errorMessage = "\(failedBackend) is not available for this model. Running on CPU."
                     showErrorAlert = true

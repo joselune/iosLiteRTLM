@@ -5,10 +5,11 @@ final class LiteRTInferenceService: InferenceEngine, @unchecked Sendable {
     private let engine = GemmaLocalEngine()
     private let queue = DispatchQueue(label: "ai.inference", qos: .userInitiated)
 
-    func loadModel(at path: String, backend: AppBackend = .cpu) async throws {
+    func loadModel(at path: String, backend: AppBackend = .cpu, gpuLibDir: String? = nil) async throws {
         let inferenceBackend = InferenceBackend(rawValue: backend.rawValue) ?? .cpu
+        let libDir = gpuLibDir
         try await runOnQueue {
-            try syncAwait { try await self.engine.loadModel(at: path, backend: inferenceBackend) }
+            try syncAwait { try await self.engine.loadModel(at: path, backend: inferenceBackend, gpuLibDir: libDir) }
         }
     }
 

@@ -8,6 +8,7 @@ typedef void (^LiteRTStreamChunkHandler)(NSString *chunk, BOOL isFinal, NSError 
 
 - (void)loadModelAtPath:(NSString *)path error:(NSError * _Nullable * _Nullable)error;
 - (void)loadModelAtPath:(NSString *)path backend:(NSString *)backend error:(NSError * _Nullable * _Nullable)error;
+- (void)loadModelAtPath:(NSString *)path backend:(NSString *)backend gpuLibDir:(NSString * _Nullable)gpuLibDir error:(NSError * _Nullable * _Nullable)error;
 - (NSString *)generate:(NSString *)prompt error:(NSError * _Nullable * _Nullable)error;
 - (void)generateStream:(NSString *)prompt onChunk:(LiteRTStreamChunkHandler)handler error:(NSError * _Nullable * _Nullable)error;
 - (void)cancelGeneration;

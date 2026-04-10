@@ -121,6 +121,24 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CC000001CCCC000100000001 /* Copy GPU Dylibs */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/GPUDylibs/macos_arm64/libLiteRt.dylib",
+				"$(SRCROOT)/GPUDylibs/macos_arm64/libLiteRtMetalAccelerator.dylib",
+			);
+			name = "Copy GPU Dylibs";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/libLiteRt.dylib",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/libLiteRtMetalAccelerator.dylib",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy GPU accelerator dylibs into the Frameworks dir so dlopen() finds them.\nif [ \"$PLATFORM_NAME\" = \"macosx\" ]; then\n  GPU_DIR=\"${SRCROOT}/GPUDylibs/macos_arm64\"\n  DEST=\"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n  mkdir -p \"$DEST\"\n  for lib in libLiteRt.dylib libLiteRtMetalAccelerator.dylib; do\n    if [ -f \"$GPU_DIR/$lib\" ]; then\n      cp -f \"$GPU_DIR/$lib\" \"$DEST/$lib\"\n      chmod +w \"$DEST/$lib\"\n      /usr/bin/install_name_tool -change @rpath/libLiteRt.dylib @loader_path/libLiteRt.dylib \"$DEST/$lib\" 2>/dev/null || true\n      /usr/bin/codesign --force --sign - --timestamp=none \"$DEST/$lib\"\n    fi\n  done\nfi\n";
+		};
 		595385C92F8551AE0023C472 /* ailocalagent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 595385EB2F8551B10023C472 /* Build configuration list for PBXNativeTarget "ailocalagent" */;
@@ -129,6 +147,7 @@
 				595385C72F8551AE0023C472 /* Frameworks */,
 				595385C82F8551AE0023C472 /* Resources */,
 				BB000004BBBB000400000004 /* Embed Frameworks */,
+				CC000001CCCC000100000001 /* Copy GPU Dylibs */,
 			);
 			buildRules = (
 			);
@@ -336,7 +355,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -402,7 +421,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -437,11 +456,12 @@
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jose.ailocalagent;
@@ -475,11 +495,12 @@
 					"$(inherited)",
 					"$(SRCROOT)/Frameworks",
 				);
-				GENERATE_INFOPLIST_FILE = NO;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jose.ailocalagent;

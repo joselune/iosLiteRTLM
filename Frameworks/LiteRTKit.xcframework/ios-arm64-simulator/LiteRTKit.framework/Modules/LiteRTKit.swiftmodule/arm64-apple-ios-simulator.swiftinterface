@@ -10,8 +10,8 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 final public class GemmaLocalEngine : LiteRTKit.LocalInferenceEngine {
   public init()
-  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
-  nonisolated(nonsending) final public func loadModel(at path: Swift.String, backend: LiteRTKit.InferenceBackend = .cpu) async throws
+  #if compiler(>=5.3) && $NonescapableTypes && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) final public func loadModel(at path: Swift.String, backend: LiteRTKit.InferenceBackend = .cpu, gpuLibDir: Swift.String? = nil) async throws
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   final nonisolated(nonsending) public func generate(prompt: Swift.String, config: LiteRTKit.InferenceConfig) async throws -> LiteRTKit.InferenceResponse
@@ -50,8 +50,8 @@ public struct InferenceResponse : Swift.Sendable {
   public let rawJSON: Swift.String
 }
 public protocol LocalInferenceEngine {
-  #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
-  nonisolated(nonsending) func loadModel(at path: Swift.String, backend: LiteRTKit.InferenceBackend) async throws
+  #if compiler(>=5.3) && $NonescapableTypes && $AsyncExecutionBehaviorAttributes
+  nonisolated(nonsending) func loadModel(at path: Swift.String, backend: LiteRTKit.InferenceBackend, gpuLibDir: Swift.String?) async throws
   #endif
   #if compiler(>=5.3) && $AsyncExecutionBehaviorAttributes
   nonisolated(nonsending) func generate(prompt: Swift.String, config: LiteRTKit.InferenceConfig) async throws -> LiteRTKit.InferenceResponse

@@ -50,7 +50,7 @@
           {
             "kind": "Function",
             "name": "loadModel",
-            "printedName": "loadModel(at:backend:)",
+            "printedName": "loadModel(at:backend:gpuLibDir:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -69,11 +69,26 @@
                 "printedName": "LiteRTKit.InferenceBackend",
                 "hasDefaultArg": true,
                 "usr": "s:9LiteRTKit16InferenceBackendO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:9LiteRTKit16GemmaLocalEngineC9loadModel2at7backendySS_AA16InferenceBackendOtYaKF",
-            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC9loadModel2at7backendySS_AA16InferenceBackendOtYaKF",
+            "usr": "s:9LiteRTKit16GemmaLocalEngineC9loadModel2at7backend9gpuLibDirySS_AA16InferenceBackendOSSSgtYaKF",
+            "mangledName": "$s9LiteRTKit16GemmaLocalEngineC9loadModel2at7backend9gpuLibDirySS_AA16InferenceBackendOSSSgtYaKF",
             "moduleName": "LiteRTKit",
             "declAttributes": [
               "Final",
@@ -1074,7 +1089,7 @@
           {
             "kind": "Function",
             "name": "loadModel",
-            "printedName": "loadModel(at:backend:)",
+            "printedName": "loadModel(at:backend:gpuLibDir:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -1092,11 +1107,25 @@
                 "name": "InferenceBackend",
                 "printedName": "LiteRTKit.InferenceBackend",
                 "usr": "s:9LiteRTKit16InferenceBackendO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:9LiteRTKit20LocalInferenceEngineP9loadModel2at7backendySS_AA0D7BackendOtYaKF",
-            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP9loadModel2at7backendySS_AA0D7BackendOtYaKF",
+            "usr": "s:9LiteRTKit20LocalInferenceEngineP9loadModel2at7backend9gpuLibDirySS_AA0D7BackendOSSSgtYaKF",
+            "mangledName": "$s9LiteRTKit20LocalInferenceEngineP9loadModel2at7backend9gpuLibDirySS_AA0D7BackendOSSSgtYaKF",
             "moduleName": "LiteRTKit",
             "genericSig": "<τ_0_0 where τ_0_0 : LiteRTKit.LocalInferenceEngine>",
             "sugared_genericSig": "<Self where Self : LiteRTKit.LocalInferenceEngine>",
@@ -1279,35 +1308,35 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "filePath": "\/Users\/joseluna\/xgeeks\/LiteRTKit-repo\/LiteRTKit\/Public\/InferenceConfig.swift",
       "kind": "StringLiteral",
       "offset": 188,
       "length": 5,
       "value": "\"cpu\""
     },
     {
-      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "filePath": "\/Users\/joseluna\/xgeeks\/LiteRTKit-repo\/LiteRTKit\/Public\/InferenceConfig.swift",
       "kind": "StringLiteral",
       "offset": 209,
       "length": 5,
       "value": "\"gpu\""
     },
     {
-      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "filePath": "\/Users\/joseluna\/xgeeks\/LiteRTKit-repo\/LiteRTKit\/Public\/InferenceConfig.swift",
       "kind": "StringLiteral",
       "offset": 230,
       "length": 5,
       "value": "\"npu\""
     },
     {
-      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "filePath": "\/Users\/joseluna\/xgeeks\/LiteRTKit-repo\/LiteRTKit\/Public\/InferenceConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 388,
       "length": 3,
       "value": "512"
     },
     {
-      "filePath": "\/Users\/joseluna\/xgeeks\/MobileExp\/LiteRTKit\/LiteRTKit\/Public\/InferenceConfig.swift",
+      "filePath": "\/Users\/joseluna\/xgeeks\/LiteRTKit-repo\/LiteRTKit\/Public\/InferenceConfig.swift",
       "kind": "FloatLiteral",
       "offset": 422,
       "length": 3,
